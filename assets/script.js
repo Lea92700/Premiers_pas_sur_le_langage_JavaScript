@@ -21,20 +21,6 @@ const slides = [
 	var arrowLeft = document.querySelector('.arrow_left');
 	var arrowRight = document.querySelector('.arrow_right');
   
-	arrowLeft.addEventListener('click', function () {
-	  console.log('Clic sur la flèche gauche');
-	});
-  
-	arrowRight.addEventListener('click', function () {
-	  console.log('Clic sur la flèche droite');
-	});
-  
-	var arrow_left = document.getElementById("arrow_left");
-	var arrow_right = document.getElementById("arrow_right");
-  
-	var totalSlides = slides.length;
-	var clickCount = 0;
-  
 	function updateCounter() {
 	  console.log(clickCount);
   
@@ -43,13 +29,14 @@ const slides = [
 	  } else if (clickCount >= totalSlides) {
 		clickCount = 0;
 	  }
-	}
+	
   
 	arrowLeft.addEventListener('click', function () {
 	  clickCount--;
 	  updateCounter();
 	  console.log('Clic sur la flèche gauche');
 	  console.log(slides[clickCount]);
+	  updateCarousel();
 	});
   
 	arrowRight.addEventListener('click', function () {
@@ -57,15 +44,17 @@ const slides = [
 	  updateCounter();
 	  console.log('Clic sur la flèche droite');
 	  console.log(slides[clickCount]);
+	  updateCarousel();
 	});
   
-	function updateCounter(){
-		document.getElementById("slides").src="./assets/images/slideshow/slide2.jpg";
+	function updateCarousel() {
+	  document.body.innerHTML = '<article>'
+		+ '<img src="' + slides[clickCount].image + '" />'
+		+ '<h2>' + slides[clickCount].tagLine + '</h2>'
+		+ '</article>';
 	}
-
-	updateCounter();
   
-	
-	
-  });
+	updateCounter();
+  }
+  );
   
