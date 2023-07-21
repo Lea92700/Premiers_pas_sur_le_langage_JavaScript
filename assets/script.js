@@ -20,7 +20,8 @@ const slides = [
   document.addEventListener('DOMContentLoaded', function () {
 	var arrowLeft = document.querySelector('.arrow_left');
 	var arrowRight = document.querySelector('.arrow_right');
-  
+  })
+
 	function updateCounter() {
 	  console.log(clickCount);
   
@@ -55,6 +56,6 @@ const slides = [
 	}
   
 	updateCounter();
-  }
-  );
+	
+  };
   
