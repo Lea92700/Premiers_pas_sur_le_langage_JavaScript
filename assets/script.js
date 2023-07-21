@@ -58,10 +58,6 @@ const slides = [
 	  console.log('Clic sur la flèche droite');
 	  console.log(slides[clickCount]);
 	});
-  
-	document.body.innerHTML = '<article>'
-    + '<img src="./assets/images/slideshow/slide2.jpg' + slides.image + '" />'
-    + '</article>'
 
 
 	updateCounter();
