@@ -59,6 +59,10 @@ const slides = [
 	  console.log(slides[clickCount]);
 	});
 
+	document.banner.innerHTML = '<img>'
+    + '<img class="'banner-img'" src="'/assets/images/slideshow/slide2.jpg'" />'
+    + '<p>'Tirages haute définition grand format' <span>'pour vos bureaux et events'</span>''</p>'
+    + '</img>'
 
 	updateCounter();
   
