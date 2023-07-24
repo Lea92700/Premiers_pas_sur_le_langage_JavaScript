@@ -1,3 +1,4 @@
+// JavaScript
 const slides = [
 	{
 	  "image": "slide1.jpg",
@@ -5,7 +6,7 @@ const slides = [
 	},
 	{
 	  "image": "slide2.jpg",
-	  "tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+	  "tagLine": "Tirages haute définition grand format <span>pour vos bureaux et événements</span>"
 	},
 	{
 	  "image": "slide3.jpg",
@@ -18,26 +19,17 @@ const slides = [
   ];
   
   document.addEventListener('DOMContentLoaded', function () {
-	var arrowLeft = document.querySelector('.arrow_left');
-	var arrowRight = document.querySelector('.arrow_right');
-  
-	arrowLeft.addEventListener('click', function () {
-	  console.log('Clic sur la flèche gauche');
-	});
-  
-	arrowRight.addEventListener('click', function () {
-	  console.log('Clic sur la flèche droite');
-	});
-  
-	var arrow_left = document.getElementById("arrow_left");
-	var arrow_right = document.getElementById("arrow_right");
+	const banner = document.getElementById("banner");
+	const bannerImg = banner.querySelector('.banner-img');
+	const bannerTagLine = banner.querySelector('p');
+	const arrowLeft = document.querySelector('.arrow_left');
+	const arrowRight = document.querySelector('.arrow_right');
   
 	var totalSlides = slides.length;
 	var clickCount = 0;
   
 	function updateCounter() {
-	  console.log(clickCount);
-  
+		console.log(clickCount)
 	  if (clickCount < 0) {
 		clickCount = totalSlides - 1;
 	  } else if (clickCount >= totalSlides) {
@@ -49,24 +41,21 @@ const slides = [
 	  clickCount--;
 	  updateCounter();
 	  console.log('Clic sur la flèche gauche');
-	  console.log(slides[clickCount]);
+	  updateBannerContent();
 	});
   
 	arrowRight.addEventListener('click', function () {
 	  clickCount++;
 	  updateCounter();
 	  console.log('Clic sur la flèche droite');
-	  console.log(slides[clickCount]);
+	  updateBannerContent();
 	});
-
-	document.innerHTML = '<div id="banner">'
-    + '<img class="banner-img" src="./assets/images/slideshow/slide2.jpg" />'
-    + '<p>Tirages haute définition grand format <span>pour vos bureaux et événements</span></p>'
-    + '</div>';
-
-	updateCounter();
   
-	
-	
+	function updateBannerContent() {
+	  bannerImg.src = "./assets/images/slideshow/" + slides[clickCount].image;
+	  bannerTagLine.innerHTML = slides[clickCount].tagLine;
+	}
+  
+	updateBannerContent();
   });
   
