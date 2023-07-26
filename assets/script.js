@@ -29,7 +29,7 @@ const slides = [
 	var clickCount = 0;
   
 	function updateCounter() {
-		console.log(clickCount)
+	  console.log(clickCount);
 	  if (clickCount < 0) {
 		clickCount = totalSlides - 1;
 	  } else if (clickCount >= totalSlides) {
@@ -42,6 +42,7 @@ const slides = [
 	  updateCounter();
 	  console.log('Clic sur la flèche gauche');
 	  updateBannerContent();
+	  updateDots();
 	});
   
 	arrowRight.addEventListener('click', function () {
@@ -49,6 +50,7 @@ const slides = [
 	  updateCounter();
 	  console.log('Clic sur la flèche droite');
 	  updateBannerContent();
+	  updateDots();
 	});
   
 	function updateBannerContent() {
@@ -57,5 +59,15 @@ const slides = [
 	}
   
 	updateBannerContent();
+  
+	function updateDots() {
+	  let dots = document.querySelectorAll(".dots .dot");
+	  for (let i = 0; i < totalSlides; i++) {
+		dots[i].classList.remove("dot_selected");
+	  }
+	  dots[clickCount].classList.add("dot_selected");
+	}
+  
+	updateDots();
   });
   
